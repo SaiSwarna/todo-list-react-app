@@ -1,0 +1,218 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Container with slight scale animation on load */
+.app-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animation for container appearance */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Larger, bolder title with a subtle color */
+.app-title {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+/* Input container with consistent spacing */
+.input-container {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 8px; /* Adds spacing between input and button */
+}
+
+/* Input with smoother focus effect */
+.todo-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.todo-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+/* Button with hover transition and slight scale effect */
+.add-button {
+  padding: 10px 16px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-button:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+/* Todo list with no padding */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Todo item with hover effect and fade-in animation */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f9fafb;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  transition: background-color 0.3s ease;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.todo-item:hover {
+  background-color: #e5e7eb;
+}
+
+/* Animation for new todo items */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom checkbox styling */
+.todo-checkbox {
+  margin-right: 12px;
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  border: 2px solid #6b7280;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.todo-checkbox:checked {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.todo-checkbox:checked::after {
+  content: '✔';
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+/* Todo text with adjusted font size */
+.todo-text {
+  flex: 1;
+  font-size: 16px;
+}
+
+.todo-text.completed {
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+/* Delete button with smoother hover effect */
+.delete-button {
+  color: #ef4444;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.delete-button:hover {
+  color: #dc2626;
+  text-decoration: underline;
+}
+
+/* Empty message with subtle styling */
+.empty-message {
+  text-align: center;
+  color: #6b7280;
+  font-size: 16px;
+  margin-top: 16px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 16px;
+    max-width: 90%;
+  }
+
+  .app-title {
+    font-size: 24px;
+  }
+
+  .todo-input,
+  .add-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .todo-item {
+    padding: 8px;
+  }
+
+  .todo-text {
+    font-size: 14px;
+  }
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filter-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #e5e7eb;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-button.active {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.filter-button:hover {
+  background-color: #d1d5db;
+}
